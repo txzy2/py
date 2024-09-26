@@ -1,16 +1,21 @@
-import random
+from rich.console import Console 
+
+from shared.text import text_lab1
 
 """
 Lab 1
 В списке из 0 и 1 найти длинну самого длинного подряд идущего ряда 1
 """
 
-def main(_list: list[int]) -> str:
-    print(f"Start list: {_list}")
-    print('-'*40)
+console = Console()
+
+def max_island(_list: list[int]) -> str:
+    console.print(f"""[red]{text_lab1}[/red]""")
+
+    print(f"Начальный список: {_list}")
     buff: int = 0
 
-    list_of_max: List[int] = []
+    list_of_max: list[int] = []
 
     for i in _list:
         if i == 1:
@@ -22,9 +27,4 @@ def main(_list: list[int]) -> str:
 
             buff = 0
 
-    return f"Max island is: {max(list_of_max)}"
-
-
-if __name__ == '__main__':
-    random_list: list[int] = [random.choice([0, 1]) for _ in range(20)]
-    print(main(_list=random_list))
+    return f"Максимальный остров имеет длинну: {max(list_of_max)}"
