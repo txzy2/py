@@ -5,15 +5,14 @@ def output(arr: list[list[int]]) -> None:
     for row in arr:
         print(' '.join(map(str, row)))
 
-def up_half(arr: list[list[int]]) -> None:
-    for i, row in enumerate(arr):
-        for j in range(len(arr) - 1 - i, -1, -1):
-            if row[j] == 0 and arr[j][i] == 0:
-                row[j] = '+'
+def right_triangle(arr: list[list[int]]) -> None:
+    n = len(arr)
+    for i in range(n):
+        for j in range(n):
+            if i <= j and i >= n - 1 - j:
+                arr[i][j] = '+'
 
-    console.print(
-        """\n[red]Верхний треугольник квадратной матрицы[/red]\n"""
-                  )
+    print("\nПравый треугольник матрицы\n")
     output(arr)
 
 def kv(n: int):
@@ -22,4 +21,4 @@ def kv(n: int):
     )
 
     output([[0] * n for _ in range(n)])
-    up_half([[0] * n for _ in range(n)])
+    right_triangle([[0] * n for _ in range(n)])
