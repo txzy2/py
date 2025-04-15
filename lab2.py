@@ -9,7 +9,7 @@ def right_triangle(arr: list[list[int]]) -> None:
     n = len(arr)
     for i in range(n):
         for j in range(n):
-            if i <= j and i >= n - 1 - j:
+            if i <= j and i + j >= n - 1:
                 arr[i][j] = '+'
 
     print("\nПравый треугольник матрицы\n")
